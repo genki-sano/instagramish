@@ -37,12 +37,13 @@
                     <button type="submit" class="button button--inverse">register</button>
                 </div>
             </form>
-        </div>    </div>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        data () {
+        data() {
             return {
                 tab: 1,
                 loginForm: {
@@ -58,11 +59,13 @@
             }
         },
         methods: {
-            login () {
+            login() {
                 console.log(this.loginForm)
             },
-            register () {
-                console.log(this.registerForm)
+            async register() {
+                await this.$store.dispatch('auth/register', this.registerForm);
+
+                this.$router.push('/');
             }
         }
     }
