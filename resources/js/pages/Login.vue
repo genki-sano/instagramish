@@ -63,10 +63,19 @@
                 console.log(this.loginForm)
             },
             async register() {
+                // authストアのregisterアクションを呼び出す
                 await this.$store.dispatch('auth/register', this.registerForm);
 
+                // トップページに移動
                 this.$router.push('/');
-            }
+            },
+            async login () {
+                // authストアのloginアクションを呼び出す
+                await this.$store.dispatch('auth/login', this.loginForm);
+
+                // トップページに移動
+                this.$router.push('/');
+            },
         }
     }
 </script>
