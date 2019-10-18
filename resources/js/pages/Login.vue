@@ -59,8 +59,13 @@
             }
         },
         methods: {
-            login() {
-                console.log(this.loginForm)
+            async login() {
+                console.log(this.loginForm);
+                // authストアのloginアクションを呼び出す
+                await this.$store.dispatch('auth/login', this.loginForm);
+
+                // トップページに移動
+                this.$router.push('/');
             },
             async register() {
                 // authストアのregisterアクションを呼び出す
@@ -68,14 +73,7 @@
 
                 // トップページに移動
                 this.$router.push('/');
-            },
-            async login () {
-                // authストアのloginアクションを呼び出す
-                await this.$store.dispatch('auth/login', this.loginForm);
-
-                // トップページに移動
-                this.$router.push('/');
-            },
+            }
         }
     }
 </script>
