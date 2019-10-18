@@ -15,7 +15,7 @@ class RegisterApiTest extends TestCase
      * 新しいユーザーを作成して返却
      * @test
      */
-    public function test_createUser()
+    public function test_registerUser()
     {
         $data = [
             'name' => 'vuesplash user',
