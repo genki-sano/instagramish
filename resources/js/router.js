@@ -5,6 +5,9 @@ import VueRouter from 'vue-router'
 import PhotoList from './pages/PhotoList.vue'
 import Login from './pages/Login.vue'
 
+// ログイン状態の確認用にストアを取得
+import store from './store'
+
 // VueRouterプラグインを使用
 Vue.use(VueRouter);
 
@@ -16,7 +19,14 @@ const routes = [
     },
     {
         path: '/login',
-        component: Login
+        component: Login,
+        beforeEnter(to, from, next) {
+            if (store.getters['auth/check']) {
+                next('/')
+            } else {
+                next()
+            }
+        }
     }
 ];
 
