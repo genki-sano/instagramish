@@ -18,7 +18,7 @@ class PhotoListApiTest extends TestCase
      * 正しい構造のJSONを返却
      * @test
      */
-    public function test_returnJson()
+    public function test_returnPhotoListJson()
     {
         // 5つの写真データを生成する
         factory(Photo::class, 5)->create();
