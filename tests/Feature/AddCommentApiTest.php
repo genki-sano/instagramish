@@ -12,6 +12,7 @@ class AddCommentApiTest extends TestCase
 {
     use RefreshDatabase;
 
+    /** @var mixed  */
     private $user;
 
     /**

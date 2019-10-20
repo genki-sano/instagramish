@@ -39,7 +39,7 @@ class PhotoSubmitApiTest extends TestCase
         Storage::fake('s3');
 
         $response = $this->actingAs($this->user)
-            ->json('post', route('photo.create'), [
+            ->json('POST', route('photo.create'), [
                 // ダミーファイルを作成して送信
                 'photo' => UploadedFile::fake()->image('photo.jpg')
             ]);
@@ -68,7 +68,7 @@ class PhotoSubmitApiTest extends TestCase
         Storage::fake('s3');
 
         $response = $this->actingAs($this->user)
-            ->json('post', route('photo.create'), [
+            ->json('POST', route('photo.create'), [
                 // ダミーファイルを作成して送信
                 'photo' => UploadedFile::fake()->image('photo.jpg')
             ]);
@@ -92,7 +92,7 @@ class PhotoSubmitApiTest extends TestCase
             ->andReturnNull();
 
         $response = $this->actingAs($this->user)
-            ->json('post', route('photo.create'), [
+            ->json('POST', route('photo.create'), [
                 'photo' => UploadedFile::fake()->image('photo.jpg'),
             ]);
 

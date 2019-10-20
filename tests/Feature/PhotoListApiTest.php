@@ -23,7 +23,7 @@ class PhotoListApiTest extends TestCase
         // 5つの写真データを生成する
         factory(Photo::class, 5)->create();
 
-        $response = $this->json('get', route('photo.index'));
+        $response = $this->json('GET', route('photo.index'));
 
         // 生成した写真データを作成日降順で取得
         $photos = Photo::with(['owner'])->orderBy('created_at', 'desc')->get();
