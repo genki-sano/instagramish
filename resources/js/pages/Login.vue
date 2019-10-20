@@ -58,14 +58,20 @@
                 }
             }
         },
+        computed: {
+            apiStatus() {
+                return this.$store.state.auth.apiStatus;
+            }
+        },
         methods: {
             async login() {
-                console.log(this.loginForm);
                 // authストアのloginアクションを呼び出す
                 await this.$store.dispatch('auth/login', this.loginForm);
 
-                // トップページに移動
-                this.$router.push('/');
+                if (this.apiStatus) {
+                    // トップページに移動
+                    this.$router.push('/');
+                }
             },
             async register() {
                 // authストアのregisterアクションを呼び出す
