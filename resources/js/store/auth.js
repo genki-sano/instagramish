@@ -13,6 +13,9 @@ const getters = {
 const mutations = {
     setUser(state, user) {
         state.user = user;
+    },
+    setApiStatus (state, status) {
+        state.apiStatus = status;
     }
 };
 
