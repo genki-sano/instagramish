@@ -14,6 +14,9 @@ class Photo extends Model
     /** @var int IDの桁数 */
     const ID_LENGTH = 12;
 
+    /** @var int 1ページあたりの項目数 */
+    protected $perPage = 15;
+
     /** @var array JSONに含めるアクセサ */
     protected $appends = [
         'url',
