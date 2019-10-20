@@ -39,7 +39,7 @@ class Photo extends Model
     }
 
     /**
-     * ランダムなID値をid属性に代入する
+     * ランダムなID値をid属性に代入
      * @throws \Exception
      */
     private function setId()
@@ -48,7 +48,7 @@ class Photo extends Model
     }
 
     /**
-     * ランダムなID値を生成する
+     * ランダムなID値を生成
      * @return string
      * @throws \Exception
      */

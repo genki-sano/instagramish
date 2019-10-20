@@ -39,21 +39,17 @@ class PhotoController extends Controller
      */
     public function create(StorePhoto $request)
     {
-        // 投稿写真の拡張子を取得する
+        // 投稿写真の拡張子を取得
         $extension = $request->photo->extension();
 
         $photo = new Photo();
 
-        // インスタンス生成時に割り振られたランダムなID値と
-        // 本来の拡張子を組み合わせてファイル名とする
+        // ファイル名作成
         $photo->filename = $photo->id . '.' . $extension;
 
-        // S3にファイルを保存する
-        // 第三引数の'public'はファイルを公開状態で保存するため
+        // 公開状態でS3にファイルを保存
         Storage::cloud()->putFileAs('', $request->photo, $photo->filename, 'public');
 
-        // データベースエラー時にファイル削除を行うため
-        // トランザクションを利用する
         DB::beginTransaction();
 
         try {
@@ -66,8 +62,7 @@ class PhotoController extends Controller
             throw $exception;
         }
 
-        // リソースの新規作成なので
-        // レスポンスコードは201(CREATED)を返却する
+        // レスポンスコードは201(CREATED)を返却
         return response($photo, 201);
     }
 
