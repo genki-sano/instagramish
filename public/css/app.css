@@ -64,6 +64,8 @@ img {
 }
 
 .navbar__brand {
+  width: 120px;
+  margin-top: 16px;
   color: inherit;
   font-family: Merriweather, serif;
   font-weight: bold;

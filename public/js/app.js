@@ -4605,7 +4605,7 @@ var render = function() {
     { staticClass: "navbar" },
     [
       _c("RouterLink", { staticClass: "navbar__brand", attrs: { to: "/" } }, [
-        _vm._v("\n        Vuesplash\n    ")
+        _c("img", { attrs: { src: "/logo.png" } })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "navbar__menu" }, [
