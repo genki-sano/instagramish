@@ -2714,6 +2714,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
@@ -2923,6 +2930,60 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return unlike;
+    }(),
+    deletePhoto: function () {
+      var _deletePhoto = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                if (this.isLogin) {
+                  _context5.next = 3;
+                  break;
+                }
+
+                alert('写真を削除するにはログインしてください。');
+                return _context5.abrupt("return", false);
+
+              case 3:
+                _context5.next = 5;
+                return axios["delete"]("/api/photos/".concat(this.id, "/"));
+
+              case 5:
+                response = _context5.sent;
+
+                if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
+                  _context5.next = 9;
+                  break;
+                }
+
+                this.$store.commit('error/setCode', response.status);
+                return _context5.abrupt("return", false);
+
+              case 9:
+                // メッセージ登録
+                this.$store.commit('message/setContent', {
+                  content: '写真が削除されました！',
+                  timeout: 6000
+                });
+                this.$router.push('/');
+
+              case 11:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
+      }));
+
+      function deletePhoto() {
+        return _deletePhoto.apply(this, arguments);
+      }
+
+      return deletePhoto;
     }()
   },
   watch: {
@@ -2930,20 +2991,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       handler: function () {
         var _handler = _asyncToGenerator(
         /*#__PURE__*/
-        _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
             while (1) {
-              switch (_context5.prev = _context5.next) {
+              switch (_context6.prev = _context6.next) {
                 case 0:
-                  _context5.next = 2;
+                  _context6.next = 2;
                   return this.fetchPhoto();
 
                 case 2:
                 case "end":
-                  return _context5.stop();
+                  return _context6.stop();
               }
             }
-          }, _callee5, this);
+          }, _callee6, this);
         }));
 
         function handler() {
@@ -5358,6 +5419,19 @@ var render = function() {
               [
                 _c("i", { staticClass: "icon ion-md-arrow-round-down" }),
                 _vm._v("Download\n        ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "button",
+                attrs: { title: "Delete photo" },
+                on: { click: _vm.deletePhoto }
+              },
+              [
+                _c("i", { staticClass: "icon ion-md-close" }),
+                _vm._v("Delete\n        ")
               ]
             ),
             _vm._v(" "),

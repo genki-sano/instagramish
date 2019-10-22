@@ -94,9 +94,6 @@ class PhotoController extends Controller
             abort(404);
         }
 
-        // ストレージの削除
-        Storage::cloud()->delete($photo->filename);
-
         DB::beginTransaction();
         try {
             // レコードの削除
@@ -104,10 +101,10 @@ class PhotoController extends Controller
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();
-            // DBとの不整合を避けるためファイルを再アップ
-            Storage::cloud()->putFileAs('', $photo->filename, 'public');
             throw $exception;
         }
+        // ストレージの削除
+        Storage::cloud()->delete($photo->filename);
 
         return response('', 200);
     }

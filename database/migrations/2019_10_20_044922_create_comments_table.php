@@ -20,8 +20,8 @@ class CreateCommentsTable extends Migration
             $table->text('content');
             $table->timestamps();
 
-            $table->foreign('photo_id')->references('id')->on('photos');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('photo_id')->references('id')->on('photos')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

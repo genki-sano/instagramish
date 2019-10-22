@@ -27,6 +27,13 @@
             >
                 <i class="icon ion-md-arrow-round-down"></i>Download
             </a>
+            <button
+                class="button"
+                title="Delete photo"
+                @click="deletePhoto"
+            >
+                <i class="icon ion-md-close"></i>Delete
+            </button>
             <h2 class="photo-detail__title">
                 <i class="icon ion-md-chatboxes"></i>Comments
             </h2>
@@ -152,6 +159,27 @@
 
                 this.$set(this.photo, 'likes_count', this.photo.likes_count - 1);
                 this.$set(this.photo, 'liked_by_user', false);
+            },
+            async deletePhoto() {
+                if (!this.isLogin) {
+                    alert('写真を削除するにはログインしてください。');
+                    return false;
+                }
+
+                const response = await axios.delete(`/api/photos/${this.id}/`);
+
+                if (response.status !== OK) {
+                    this.$store.commit('error/setCode', response.status);
+                    return false;
+                }
+
+                // メッセージ登録
+                this.$store.commit('message/setContent', {
+                    content: '写真が削除されました！',
+                    timeout: 6000
+                });
+
+                this.$router.push('/');
             }
         },
         watch: {
