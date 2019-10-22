@@ -81,6 +81,38 @@ class PhotoController extends Controller
     }
 
     /**
+     * 写真削除
+     * @param string $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @throws \Exception
+     */
+    public function delete(string $id)
+    {
+        $photo = Photo::where('id', $id)->first();
+
+        if (!$photo) {
+            abort(404);
+        }
+
+        // ストレージの削除
+        Storage::cloud()->delete($photo->filename);
+
+        DB::beginTransaction();
+        try {
+            // レコードの削除
+            Photo::destroy($id);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            // DBとの不整合を避けるためファイルを再アップ
+            Storage::cloud()->putFileAs('', $photo->filename, 'public');
+            throw $exception;
+        }
+
+        return response('', 200);
+    }
+
+    /**
      * 写真ダウンロード
      * @param Photo $photo
      * @return \Illuminate\Http\Response
