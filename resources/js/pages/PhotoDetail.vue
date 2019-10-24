@@ -28,6 +28,7 @@
                 <i class="icon ion-md-arrow-round-down"></i>Download
             </a>
             <button
+                v-if="isLogin"
                 class="button"
                 title="Delete photo"
                 @click="deletePhoto"
@@ -161,11 +162,6 @@
                 this.$set(this.photo, 'liked_by_user', false);
             },
             async deletePhoto() {
-                if (!this.isLogin) {
-                    alert('写真を削除するにはログインしてください。');
-                    return false;
-                }
-
                 const response = await axios.delete(`/api/photos/${this.id}/`);
 
                 if (response.status !== OK) {

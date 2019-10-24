@@ -2721,6 +2721,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
@@ -2940,30 +2941,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                if (this.isLogin) {
-                  _context5.next = 3;
-                  break;
-                }
-
-                alert('写真を削除するにはログインしてください。');
-                return _context5.abrupt("return", false);
-
-              case 3:
-                _context5.next = 5;
+                _context5.next = 2;
                 return axios["delete"]("/api/photos/".concat(this.id, "/"));
 
-              case 5:
+              case 2:
                 response = _context5.sent;
 
                 if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
-                  _context5.next = 9;
+                  _context5.next = 6;
                   break;
                 }
 
                 this.$store.commit('error/setCode', response.status);
                 return _context5.abrupt("return", false);
 
-              case 9:
+              case 6:
                 // メッセージ登録
                 this.$store.commit('message/setContent', {
                   content: '写真が削除されました！',
@@ -2971,7 +2963,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
                 this.$router.push('/');
 
-              case 11:
+              case 8:
               case "end":
                 return _context5.stop();
             }
@@ -5422,18 +5414,20 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "button",
-                attrs: { title: "Delete photo" },
-                on: { click: _vm.deletePhoto }
-              },
-              [
-                _c("i", { staticClass: "icon ion-md-close" }),
-                _vm._v("Delete\n        ")
-              ]
-            ),
+            _vm.isLogin
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    attrs: { title: "Delete photo" },
+                    on: { click: _vm.deletePhoto }
+                  },
+                  [
+                    _c("i", { staticClass: "icon ion-md-close" }),
+                    _vm._v("Delete\n        ")
+                  ]
+                )
+              : _vm._e(),
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
