@@ -29,6 +29,9 @@ Route::get('/reflesh-token', function (Illuminate\Http\Request $request) {
     return response()->json();
 });
 
+// 会員詳細
+Route::get('/user/{id}', 'UserController@show')->name('user.show');
+
 // 写真一覧
 Route::get('/photos', 'PhotoController@index')->name('photo.index');
 // 写真投稿
