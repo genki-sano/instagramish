@@ -8,7 +8,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class AddCommentApiTest extends TestCase
+class CommentApiTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -47,10 +47,10 @@ class AddCommentApiTest extends TestCase
         $response->assertStatus(201)
             // JSONフォーマットが期待通りであること
             ->assertJsonFragment([
-                "author" => [
-                    "name" => $this->user->name,
+                'author' => [
+                    'name' => $this->user->name,
                 ],
-                "content" => $content,
+                'content' => $content,
             ]);
 
         // DBにコメントが1件登録されていること

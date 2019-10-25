@@ -9,14 +9,14 @@ use Illuminate\Support\Arr;
 
 class Photo extends Model
 {
-    /** @var string プライマリキーの型 */
-    protected $keyType = 'string';
-
     /** @var int IDの桁数 */
     const ID_LENGTH = 12;
 
     /** @var int 1ページあたりの項目数 */
     protected $perPage = 15;
+
+    /** @var string プライマリキーの型 */
+    protected $keyType = 'string';
 
     /** @var array JSONに含めるアクセサ */
     protected $appends = [

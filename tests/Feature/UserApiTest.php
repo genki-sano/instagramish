@@ -31,9 +31,11 @@ class UserApiTest extends TestCase
      */
     public function test_getLoginUser()
     {
-        $response = $this->actingAs($this->user)->json('GET', route('user'));
+        $response = $this->actingAs($this->user)
+            ->json('GET', route('user'));
 
-        $response->assertStatus(200)->assertJson(['name' => $this->user->name]);
+        $response->assertStatus(200)
+            ->assertJson(['name' => $this->user->name]);
     }
 
     /**

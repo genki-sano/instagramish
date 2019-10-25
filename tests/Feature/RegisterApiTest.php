@@ -18,7 +18,7 @@ class RegisterApiTest extends TestCase
     public function test_registerUser()
     {
         $data = [
-            'name' => 'vuesplash user',
+            'name' => 'test user',
             'email' => 'dummy@email.com',
             'password' => 'test1234',
             'password_confirmation' => 'test1234',

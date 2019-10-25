@@ -45,8 +45,6 @@ class PhotoListApiTest extends TestCase
             // レスポンスJSONのdata項目に含まれる要素が5つであること
             ->assertJsonCount(5, 'data')
             // レスポンスJSONのdata項目が期待値と合致すること
-            ->assertJsonFragment([
-                "data" => $expected_data,
-            ]);
+            ->assertJsonFragment(['data' => $expected_data]);
     }
 }

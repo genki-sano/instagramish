@@ -93,6 +93,7 @@ class PhotoSubmitApiTest extends TestCase
 
         $response = $this->actingAs($this->user)
             ->json('POST', route('photo.create'), [
+                // ダミーファイルを作成して送信
                 'photo' => UploadedFile::fake()->image('photo.jpg'),
             ]);
 

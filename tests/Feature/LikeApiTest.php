@@ -42,9 +42,7 @@ class LikeApiTest extends TestCase
             ->json('PUT', route('photo.like', $this->photo->id));
 
         $response->assertStatus(200)
-            ->assertJsonFragment([
-                'photo_id' => $this->photo->id,
-            ]);
+            ->assertJsonFragment(['photo_id' => $this->photo->id]);
 
         $this->assertEquals(1, $this->photo->likes()->count());
     }
@@ -74,9 +72,7 @@ class LikeApiTest extends TestCase
             ->json('DELETE', route('photo.like', $this->photo->id));
 
         $response->assertStatus(200)
-            ->assertJsonFragment([
-                'photo_id' => $this->photo->id,
-            ]);
+            ->assertJsonFragment(['photo_id' => $this->photo->id]);
 
         $this->assertEquals(0, $this->photo->likes()->count());
     }

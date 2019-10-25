@@ -23,9 +23,7 @@ class PhotoDetailApiTest extends TestCase
         });
         $photo = Photo::all()->first();
 
-        $response = $this->json('GET', route('photo.show', [
-            'id' => $photo->id,
-        ]));
+        $response = $this->json('GET', route('photo.show', ['id' => $photo->id]));
 
         $response->assertStatus(200)
             ->assertJsonFragment([
