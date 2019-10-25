@@ -1,14 +1,15 @@
-# laravel-vue-spa
+# snaostagram
 
-A Vue-Vue Router-Vuex-Laravel Single Page Application.
+Single page application like Instagram.
 
 ## Install
 
 1. `git clone https://github.com/genki-sano/laravel-vue-spa.git`
 2. `cd laravel-vue-spa`
 3. `composer install`
-4. Open `.env` file in your favorite text editor and set the database credentials.
-5. `npm install`
+4. `npm install`
+5. Open `.env` file in your favorite text editor and set the database credentials.
+6. `php artisan migrate`
 
 ## Usage
 
