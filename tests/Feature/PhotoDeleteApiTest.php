@@ -7,7 +7,6 @@ use App\User;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
@@ -17,8 +16,6 @@ class PhotoDeleteApiTest extends TestCase
 
     /** @var mixed  */
     private $user;
-    /** @var mixed  */
-    private $photo;
 
     /**
      * {@inheritdoc}
@@ -29,14 +26,6 @@ class PhotoDeleteApiTest extends TestCase
 
         // テストユーザー作成
         $this->user = factory(User::class)->create();
-
-        // テスト写真を作成
-        factory(Photo::class)->create();
-        $this->photo = Photo::all()->first();
-
-        // ダミーファイルにアップロード
-        Storage::fake('s3');
-        UploadedFile::fake()->image($this->photo->filename);
     }
 
     /**
@@ -45,8 +34,16 @@ class PhotoDeleteApiTest extends TestCase
      */
     public function test_deletePhoto()
     {
+        // テスト写真を作成
+        factory(Photo::class)->create();
+        $photo = Photo::all()->first();
+
+        // ダミーファイルにアップロード
+        Storage::fake('s3');
+        UploadedFile::fake()->image($photo->filename);
+
         $response = $this->actingAs($this->user)
-            ->json('DELETE', route('photo.delete', $this->photo->id));
+            ->json('DELETE', route('photo.delete', $photo->id));
 
         $response->assertStatus(200);
 
