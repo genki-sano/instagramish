@@ -1,4 +1,4 @@
-# snaostagram
+# sanostagram
 
 Single page application like Instagram.
 
