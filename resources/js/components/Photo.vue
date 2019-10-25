@@ -31,7 +31,8 @@
                     :href="`/photos/${item.id}/download`"
                 >
                     <i class="icon ion-md-arrow-round-down"></i>
-                </a>            </div>
+                </a>
+            </div>
             <div class="photo__username">
                 {{ item.owner.name }}
             </div>
