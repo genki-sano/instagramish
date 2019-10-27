@@ -24,7 +24,8 @@ class UserDetailApiTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJson([
-                'name' => $user->name
+                'name' => $user->name,
+                'email' => $user->email
             ]);
     }
 }
