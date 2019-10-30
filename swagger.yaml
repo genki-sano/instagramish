@@ -1,0 +1,278 @@
+---
+swagger: '2.0'
+
+info:
+  title: "Instagramish API"
+  description: "This is api for Instagramish."
+  termsOfService: "http://swagger.io/terms/"
+  version: "0.1.0"
+  license:
+    name: "Apache 2.0"
+    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+  
+tags:
+- name: "Instagramish-api"
+  description: "API Routes for this application."
+  
+schemes:
+- "http"
+
+paths:
+  /api/photos:
+    get:
+      tags:
+      - "Instagramish-api"
+      summary: "Get photo list"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: "object"
+            properties:
+              total:
+                type: "integer"
+                example: 50
+              per_page:
+                type: "integer"
+                example: 15
+              current_page:
+                type: "integer"
+                example: 1
+              last_page:
+                type: "integer"
+                example: 4
+              first_page_url:
+                type: "string"
+                example: "http://instagramish.test?page=1"
+              last_page_url:
+                type: "string"
+                example: "http://instagramish.test?page=4"
+              next_page_url:
+                type: "string"
+                example: "http://instagramish.test?page=2"
+              prev_page_url:
+                type: "string"
+                example: null
+              path:
+                type: "string"
+                example: "http://instagramish.test"
+              from:
+                type: "integer"
+                example: 1
+              to:
+                type: "integer"
+                example: 15
+              data:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    id:
+                      $ref: "#/definitions/photo_id"
+                    url:
+                      $ref: "#/definitions/strage_url"
+                    owner:
+                      $ref: "#/definitions/author"
+                    likes_count:
+                      $ref: "#/definitions/likes_count"
+                    liked_by_user:
+                      $ref: "#/definitions/liked_by_user"
+    post:
+      tags:
+      - "Instagramish-api"
+      summary: "Post a photo"
+      description: "※This can only be done by the logged in user."
+      responses:
+        201:
+          description: "Created"
+
+  /api/photos/:photo_id:
+    get:
+      tags:
+      - "Instagramish-api"
+      summary: "Get photo details"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: "object"
+            properties:
+              id:
+                $ref: "#/definitions/photo_id"
+              url:
+                $ref: "#/definitions/strage_url"
+              owner:
+                $ref: "#/definitions/author"
+              comments:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    content:
+                      $ref: "#/definitions/content"
+                    author:
+                      $ref: "#/definitions/author"
+              likes_count:
+                $ref: "#/definitions/likes_count"
+              liked_by_user:
+                $ref: "#/definitions/liked_by_user"
+    delete:
+      tags:
+      - "Instagramish-api"
+      summary: "Delete a photo"
+      responses:
+        200:
+          description: OK
+
+  /api/photos/:photo_id/like:
+    put:
+      tags:
+      - "Instagramish-api"
+      summary: "Add Like to Photo"
+      parameters:
+      - name: "photo_id"
+        in: "path"
+        description: "photo id"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: "object"
+            properties:
+              photo_id:
+                $ref: "#/definitions/photo_id"
+    delete:
+      tags:
+      - "Instagramish-api"
+      summary: "Remove Like from photo"
+      parameters:
+      - name: "photo_id"
+        in: "path"
+        description: "photo id"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: "object"
+            properties:
+              photo_id:
+                $ref: "#/definitions/photo_id"
+
+  /api/photo/:photo_id/comment:
+    post:
+      tags:
+      - "Instagramish-api"
+      summary: "Add comment to photo"
+      responses:
+        201:
+          description: "CREATED"
+          schema:
+            type: "object"
+            properties:
+              content:
+                $ref: "#/definitions/content"
+              author:
+                $ref: "#/definitions/author"              
+    
+  /api/user:
+    post:
+      tags:
+      - "Instagramish-api"
+      summary: "Create user"
+      parameters:
+      - name: "name"
+        in: "query"
+        description: "user name"
+        required: true
+        type: "string"
+      - name: "email"
+        in: "query"
+        description: "mail address"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "login password"
+        required: true
+        type: "string"
+        format: "password"
+      - name: "password_confirmation"
+        in: "query"
+        description: "login password"
+        required: true
+        type: "string"
+        format: "password"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            type: "object"
+            properties:
+              name:
+                $ref: "#/definitions/name"
+  
+  /api/login:
+    post:
+      tags:
+      - "Instagramish-api"
+      summary: "Login user"
+      parameters:
+      - name: "email"
+        in: "query"
+        description: "mail address"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "login password"
+        required: true
+        type: "string"
+        format: "password"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              name:
+                $ref: "#/definitions/name"
+  
+  /api/logout:
+    post:
+      tags:
+      - "Instagramish-api"
+      summary: "Logout user"
+      description: "※This can only be done by the logged in user."
+      responses:
+        200:
+          description: "OK"
+
+definitions:
+  name:
+    type: "string"
+    example: "John Lennon"
+  photo_id:
+    type: "string"
+    example: "abcd1234EFGH"
+  content:
+    type: "string"
+    example: "Nice picture!" 
+  strage_url:
+    type: "string"
+    example: "https://instagramish-storage.com/abcd1234EFGH.jpeg"
+  likes_count:
+    type: "integer"
+    example: 12
+  liked_by_user:
+    type: "boolean"
+    example: true
+  author:
+    type: "object"
+    properties:
+      name:
+        $ref: "#/definitions/name" 
+    
