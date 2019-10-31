@@ -1,6 +1,6 @@
 # sanostagram
 
-Single page application like Instagram.
+An application that allows you to easily share photos.
 
 ## Install
 
