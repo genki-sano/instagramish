@@ -2,7 +2,7 @@
 
 ## About Instagramish
 
-Instagramish is a web application created by imitating Instagram. It is a Single-Page Application that allows you to easily share photos.
+Instagramish is a web application created by imitating Instagram. It consists of [laravel](https://laravel.com/) + [vue.js](https://vuejs.org/) + [vue-router](https://router.vuejs.org/) + [vuex](https://vuex.vuejs.org/), and it is a Single-Page Application that allows you to easily share photos.
 
 ## Install
 
