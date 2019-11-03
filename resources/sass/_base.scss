@@ -14,6 +14,18 @@ body {
     margin: 0;
 }
 
+header {
+    background: #fff;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .1);
+    height: 77px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+
 main {
     margin-bottom: 6rem;
     margin-top: 7rem;

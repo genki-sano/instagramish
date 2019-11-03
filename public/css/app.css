@@ -14,6 +14,18 @@ body {
   margin: 0;
 }
 
+header {
+  background: #fff;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
+  height: 77px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
 main {
   margin-bottom: 6rem;
   margin-top: 7rem;
@@ -50,17 +62,13 @@ img {
 
 .navbar {
   align-items: center;
-  background: #fff;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
   display: flex;
-  height: 4rem;
+  height: 77px;
   justify-content: space-between;
-  left: 0;
-  padding: 2%;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 3;
+  margin: 0 auto;
+  max-width: 1010px;
+  padding: 26px 20px;
+  width: 100%;
 }
 
 .navbar__brand {
