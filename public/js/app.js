@@ -4659,7 +4659,7 @@ var render = function() {
     { staticClass: "navbar" },
     [
       _c("RouterLink", { staticClass: "navbar__brand", attrs: { to: "/" } }, [
-        _c("img", { attrs: { src: "/logo.png" } })
+        _c("img", { attrs: { src: "/img/logo.png" } })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "navbar__menu" }, [
@@ -23131,8 +23131,8 @@ function getCookieValue(searchKey) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/vuesplash/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/vuesplash/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/code/instagramish/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/instagramish/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
