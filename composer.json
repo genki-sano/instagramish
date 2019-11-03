@@ -1,6 +1,6 @@
 {
-    "name": "genki-sano/sanostagram",
-    "description": "A Vue+Vue Router+Vuex+Laravel Single Page Application.",
+    "name": "genki-sano/instagramish",
+    "description": "A web application that allows you to easily share photos.",
     "keywords": ["spa", "laravel", "vue", "vuex", "vue router"],
     "license": "MIT",
     "type": "project",
