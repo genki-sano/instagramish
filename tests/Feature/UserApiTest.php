@@ -3,15 +3,15 @@
 namespace Tests\Feature;
 
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class UserApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @var mixed  */
+    /** @var mixed */
     private $user;
 
     /**
@@ -26,7 +26,7 @@ class UserApiTest extends TestCase
     }
 
     /**
-     * ログイン中のユーザーを返却
+     * ログイン中のユーザーを返却.
      * @test
      */
     public function test_getLoginUser()
@@ -39,7 +39,7 @@ class UserApiTest extends TestCase
     }
 
     /**
-     * ログインされていない場合は空文字を返却
+     * ログインされていない場合は空文字を返却.
      * @test
      */
     public function test_returnEmptyIfNotLogin()

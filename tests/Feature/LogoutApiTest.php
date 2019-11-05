@@ -3,15 +3,15 @@
 namespace Tests\Feature;
 
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class LogoutApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @var mixed  */
+    /** @var mixed */
     private $user;
 
     /**
@@ -26,7 +26,7 @@ class LogoutApiTest extends TestCase
     }
 
     /**
-     * 認証済みのユーザーをログアウト
+     * 認証済みのユーザーをログアウト.
      * @test
      */
     public function test_logoutUser()

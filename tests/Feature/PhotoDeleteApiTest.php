@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use App\Photo;
 use App\User;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
@@ -14,7 +14,7 @@ class PhotoDeleteApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @var mixed  */
+    /** @var mixed */
     private $user;
 
     /**
@@ -29,7 +29,7 @@ class PhotoDeleteApiTest extends TestCase
     }
 
     /**
-     * 写真を削除できるか確認
+     * 写真を削除できるか確認.
      * @test
      */
     public function test_deletePhoto()

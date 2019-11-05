@@ -3,16 +3,16 @@
 namespace Tests\Feature;
 
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class UserDetailApiTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
-     * 会員詳細に必要なJSONを返却
+     * 会員詳細に必要なJSONを返却.
      * @test
      */
     public function test_returnUserDetailJson()
@@ -25,7 +25,7 @@ class UserDetailApiTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'name' => $user->name,
-                'email' => $user->email
+                'email' => $user->email,
             ]);
     }
 }

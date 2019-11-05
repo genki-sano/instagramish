@@ -4,18 +4,18 @@ namespace Tests\Feature;
 
 use App\Photo;
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
+use Tests\TestCase;
 
 class PhotoListApiTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
-     * 正しい構造のJSONを返却
+     * 正しい構造のJSONを返却.
      * @test
      */
     public function test_returnPhotoListJson()

@@ -4,15 +4,15 @@ namespace Tests\Feature;
 
 use App\Photo;
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class CommentApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @var mixed  */
+    /** @var mixed */
     private $user;
 
     /**
@@ -27,7 +27,7 @@ class CommentApiTest extends TestCase
     }
 
     /**
-     * コメントを追加
+     * コメントを追加.
      * @test
      */
     public function test_addComment()

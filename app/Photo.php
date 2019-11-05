@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class Photo extends Model
 {
@@ -20,12 +20,12 @@ class Photo extends Model
 
     /** @var array JSONに含めるアクセサ */
     protected $appends = [
-        'url', 'likes_count', 'liked_by_user'
+        'url', 'likes_count', 'liked_by_user',
     ];
 
     /** @var array JSONに含める属性 */
     protected $visible = [
-        'id', 'owner', 'url', 'comments', 'likes_count', 'liked_by_user'
+        'id', 'owner', 'url', 'comments', 'likes_count', 'liked_by_user',
     ];
 
     /**
@@ -37,13 +37,13 @@ class Photo extends Model
     {
         parent::__construct($attributes);
 
-        if (!Arr::get($this->attributes, 'id')) {
+        if (! Arr::get($this->attributes, 'id')) {
             $this->setId();
         }
     }
 
     /**
-     * ランダムなID値をid属性に代入
+     * ランダムなID値をid属性に代入.
      * @throws \Exception
      */
     private function setId()
@@ -52,7 +52,7 @@ class Photo extends Model
     }
 
     /**
-     * ランダムなID値を生成
+     * ランダムなID値を生成.
      * @return string
      * @throws \Exception
      */
@@ -75,7 +75,7 @@ class Photo extends Model
     }
 
     /**
-     * アクセサ - url
+     * アクセサ - url.
      * @return string
      */
     public function getUrlAttribute()
@@ -84,7 +84,7 @@ class Photo extends Model
     }
 
     /**
-     * アクセサ - likes_count
+     * アクセサ - likes_count.
      * @return int
      */
     public function getLikesCountAttribute()
@@ -93,8 +93,8 @@ class Photo extends Model
     }
 
     /**
-     * アクセサ - liked_by_user
-     * @return boolean
+     * アクセサ - liked_by_user.
+     * @return bool
      */
     public function getLikedByUserAttribute()
     {
@@ -108,7 +108,7 @@ class Photo extends Model
     }
 
     /**
-     * リレーションシップ - usersテーブル
+     * リレーションシップ - usersテーブル.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function owner()
@@ -117,7 +117,7 @@ class Photo extends Model
     }
 
     /**
-     * リレーションシップ - commentsテーブル
+     * リレーションシップ - commentsテーブル.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function comments()
@@ -126,7 +126,7 @@ class Photo extends Model
     }
 
     /**
-     * リレーションシップ - usersテーブル
+     * リレーションシップ - usersテーブル.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function likes()
