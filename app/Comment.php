@@ -12,7 +12,7 @@ class Comment extends Model
     ];
 
     /**
-     * リレーションシップ - usersテーブル
+     * リレーションシップ - usersテーブル.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function author()

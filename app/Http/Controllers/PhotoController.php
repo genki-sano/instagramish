@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Photo;
 use App\Comment;
-use App\Http\Requests\StorePhoto;
 use App\Http\Requests\StoreComment;
+use App\Http\Requests\StorePhoto;
+use App\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +23,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * 写真一覧
+     * 写真一覧.
      */
     public function index()
     {
@@ -47,7 +47,7 @@ class PhotoController extends Controller
         $photo = new Photo();
 
         // ファイル名作成
-        $photo->filename = $photo->id . '.' . $extension;
+        $photo->filename = $photo->id.'.'.$extension;
 
         // 公開状態でS3にファイルを保存
         Storage::cloud()->putFileAs('', $request->photo, $photo->filename, 'public');
@@ -69,7 +69,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * 写真詳細
+     * 写真詳細.
      * @param string $id
      * @return Photo
      */
@@ -81,7 +81,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * 写真削除
+     * 写真削除.
      * @param string $id
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      * @throws \Exception
@@ -90,7 +90,7 @@ class PhotoController extends Controller
     {
         $photo = Photo::where('id', $id)->first();
 
-        if (!$photo) {
+        if (! $photo) {
             abort(404);
         }
 
@@ -110,20 +110,20 @@ class PhotoController extends Controller
     }
 
     /**
-     * 写真ダウンロード
+     * 写真ダウンロード.
      * @param Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function download(Photo $photo)
     {
         // 写真の存在チェック
-        if (!Storage::cloud()->exists($photo->filename)) {
+        if (! Storage::cloud()->exists($photo->filename)) {
             abort(404);
         }
 
         $headers = [
             'Content-Type' => 'application/octet-stream',
-            'Content-Disposition' => 'attachment; filename="' . $photo->filename . '"',
+            'Content-Disposition' => 'attachment; filename="'.$photo->filename.'"',
         ];
 
         return response(Storage::cloud()->get($photo->filename), 200, $headers);
@@ -149,7 +149,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * いいね
+     * いいね.
      * @param string $id
      * @return array
      */
@@ -157,7 +157,7 @@ class PhotoController extends Controller
     {
         $photo = Photo::where('id', $id)->with('likes')->first();
 
-        if (!$photo) {
+        if (! $photo) {
             abort(404);
         }
 
@@ -168,7 +168,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * いいね解除
+     * いいね解除.
      * @param string $id
      * @return array
      */
@@ -176,7 +176,7 @@ class PhotoController extends Controller
     {
         $photo = Photo::where('id', $id)->with('likes')->first();
 
-        if (!$photo) {
+        if (! $photo) {
             abort(404);
         }
 

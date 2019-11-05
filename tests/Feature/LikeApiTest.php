@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use App\Photo;
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class LikeApiTest extends TestCase
 {
@@ -14,7 +14,7 @@ class LikeApiTest extends TestCase
 
     /** @var mixed */
     private $user;
-    /** @var mixed  */
+    /** @var mixed */
     private $photo;
 
     /**
@@ -33,7 +33,7 @@ class LikeApiTest extends TestCase
     }
 
     /**
-     * いいねを追加できる
+     * いいねを追加できる.
      * @test
      */
     public function test_addLike()
@@ -48,7 +48,7 @@ class LikeApiTest extends TestCase
     }
 
     /**
-     * 2回同じ写真にいいねしても1個しかいいねがつかない
+     * 2回同じ写真にいいねしても1個しかいいねがつかない.
      * @test
      */
     public function test_addNotLikeWhenAddedAgain()
@@ -61,7 +61,7 @@ class LikeApiTest extends TestCase
     }
 
     /**
-     * いいねを解除できる
+     * いいねを解除できる.
      * @test
      */
     public function test_deleteLike()

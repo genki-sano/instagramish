@@ -3,15 +3,15 @@
 namespace Tests\Feature;
 
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class LoginApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @var mixed  */
+    /** @var mixed */
     private $user;
 
     /**
@@ -26,7 +26,7 @@ class LoginApiTest extends TestCase
     }
 
     /**
-     * 登録済みのユーザーを認証して返却
+     * 登録済みのユーザーを認証して返却.
      * @test
      */
     public function test_loginUser()

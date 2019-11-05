@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Filesystem\FilesystemAdapter;
 
 class User extends Authenticatable
 {
@@ -18,11 +18,11 @@ class User extends Authenticatable
 
     /** @var array JSONに含める属性 */
     protected $visible = [
-        'name'
+        'name',
     ];
 
     /**
-     * リレーションシップ - photosテーブル
+     * リレーションシップ - photosテーブル.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function photos()
