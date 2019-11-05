@@ -3,16 +3,16 @@
 namespace Tests\Feature;
 
 use App\User;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class RegisterApiTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
-     * 新しいユーザーを作成して返却
+     * 新しいユーザーを作成して返却.
      * @test
      */
     public function test_registerUser()

@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use App\Photo;
 use App\User;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +15,7 @@ class PhotoSubmitApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @var mixed  */
+    /** @var mixed */
     private $user;
 
     /**
@@ -29,7 +29,7 @@ class PhotoSubmitApiTest extends TestCase
     }
 
     /**
-     * ファイルをアップロードできる
+     * ファイルをアップロードできる.
      * @test
      */
     public function test_uploadFile()
@@ -41,7 +41,7 @@ class PhotoSubmitApiTest extends TestCase
         $response = $this->actingAs($this->user)
             ->json('POST', route('photo.create'), [
                 // ダミーファイルを作成して送信
-                'photo' => UploadedFile::fake()->image('photo.jpg')
+                'photo' => UploadedFile::fake()->image('photo.jpg'),
             ]);
 
         // レスポンスが201(CREATED)であること
@@ -57,7 +57,7 @@ class PhotoSubmitApiTest extends TestCase
     }
 
     /**
-     * データベースエラーの場合はファイルが保存されない
+     * データベースエラーの場合はファイルが保存されない.
      * @test
      */
     public function test_notUploadFileIfDbError()
@@ -70,7 +70,7 @@ class PhotoSubmitApiTest extends TestCase
         $response = $this->actingAs($this->user)
             ->json('POST', route('photo.create'), [
                 // ダミーファイルを作成して送信
-                'photo' => UploadedFile::fake()->image('photo.jpg')
+                'photo' => UploadedFile::fake()->image('photo.jpg'),
             ]);
 
         // レスポンスが500(INTERNAL SERVER ERROR)であること
@@ -81,7 +81,7 @@ class PhotoSubmitApiTest extends TestCase
     }
 
     /**
-     * ファイル保存エラーの場合はDBへの挿入はしない
+     * ファイル保存エラーの場合はDBへの挿入はしない.
      * @test
      */
     public function test_notUploadFileIfError()

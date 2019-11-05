@@ -4,16 +4,16 @@ namespace Tests\Feature;
 
 use App\Comment;
 use App\Photo;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class PhotoDetailApiTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
-     * 正しい構造のJSONを返却
+     * 正しい構造のJSONを返却.
      * @test
      */
     public function test_returnPhotoDetailJson()

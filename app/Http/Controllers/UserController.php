@@ -17,7 +17,7 @@ class UserController extends Controller
     }
 
     /**
-     * 会員詳細
+     * 会員詳細.
      * @param string $id
      */
     public function show(string $id)
