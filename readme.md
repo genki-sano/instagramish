@@ -1,5 +1,7 @@
 # Instagramish
 
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
 ## About Instagramish
 
 Instagramish is a web application created by imitating Instagram. It consists of [laravel](https://laravel.com/) + [vue.js](https://vuejs.org/) + [vue-router](https://router.vuejs.org/) + [vuex](https://vuex.vuejs.org/), and it is a Single-Page Application that allows you to easily share photos.
