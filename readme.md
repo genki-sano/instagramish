@@ -1,5 +1,6 @@
 # Instagramish
 
+[![StyleCI](https://github.styleci.io/repos/215065833/shield?branch=master)](https://github.styleci.io/repos/215065833)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 ## About Instagramish
