@@ -1,7 +1,14 @@
 # Instagramish
 
-[![StyleCI](https://github.styleci.io/repos/215065833/shield?branch=master)](https://github.styleci.io/repos/215065833)
+[![StyleCI](https://github.styleci.io/repos/215065833/shield?branch=master&style=flat)](https://github.styleci.io/repos/215065833)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
+[![PHP Version](http://img.shields.io/badge/php-v7.2-blueviolet.svg?style=flat)](composer.json)
+[![Laravel Version](http://img.shields.io/badge/laravel-v6.0-critical.svg?style=flat)](composer.json)
+[![Vue.js Version](http://img.shields.io/badge/vue-v2.5.17-green.svg?style=flat)](package.json)
+[![Vue-Router Version](http://img.shields.io/badge/vue_router-v3.1.3-green.svg?style=flat)](package.json)
+[![Vuex Version](http://img.shields.io/badge/vuex-v3.1.1-green.svg?style=flat)](package.json)
+
 
 ## About Instagramish
 
