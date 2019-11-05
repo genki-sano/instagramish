@@ -5,8 +5,10 @@ php:
   - 7.3
 
 before_script:
-  - composer self-update
-  - composer install --prefer-source --no-interaction
+  - cp .env.example .env
+  - php artisan key:generate
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-source --no-interaction
 
 script:
   - ./vendor/bin/phpunit --testdox
