@@ -9,6 +9,8 @@ before_script:
   - travis_retry composer install --prefer-source --no-interaction
   - cp .env.example .env
   - php artisan key:generate
+  - php artisan migrate
+  - npm install
 
 script:
   - ./vendor/bin/phpunit --testdox
