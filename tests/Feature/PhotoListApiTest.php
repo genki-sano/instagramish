@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class PhotoListApiTest extends TestCase
@@ -20,6 +21,8 @@ class PhotoListApiTest extends TestCase
      */
     public function test_returnPhotoListJson()
     {
+        Storage::fake('s3');
+
         // 5つの写真データを生成する
         factory(Photo::class, 5)->create();
 

@@ -6,6 +6,7 @@ use App\Comment;
 use App\Photo;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class PhotoDetailApiTest extends TestCase
@@ -18,6 +19,8 @@ class PhotoDetailApiTest extends TestCase
      */
     public function test_returnPhotoDetailJson()
     {
+        Storage::fake('s3');
+
         factory(Photo::class)->create()->each(function ($photo) {
             $photo->comments()->saveMany(factory(Comment::class, 3)->make());
         });
