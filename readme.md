@@ -20,8 +20,11 @@ Instagramish is a web application created by imitating Instagram. It consists of
 2. `cd instagramish`
 3. `composer install`
 4. `npm install`
+5. `cp .env.example .env`
+6. `php artisan key:generate`
 5. Open `.env` file in your favorite text editor and set the database credentials.
 6. `php artisan migrate`
+7. `./vendor/bin/phpunit --testdox`
 
 ## Usage
 
@@ -51,4 +54,4 @@ You can access your application the url you set `APP_URL` to.
 
 ## License
 
-This software is released under the MIT License, see LICENSE
+This software is released under the MIT License, see [LICENSE](LICENSE)
