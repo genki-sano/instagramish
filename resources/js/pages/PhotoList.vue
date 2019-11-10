@@ -14,9 +14,9 @@
 </template>
 
 <script>
-    import { OK } from '../util'
-    import Photo from '../components/Photo.vue'
-    import Pagination from '../components/Pagination.vue'
+    import { OK } from '../util';
+    import Photo from '../components/Photo.vue';
+    import Pagination from '../components/Pagination.vue';
 
     export default {
         components: {

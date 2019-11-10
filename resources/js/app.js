@@ -1,13 +1,13 @@
 // CSRF対策
-import './bootstrap'
+import './bootstrap';
 
-import Vue from 'vue'
+import Vue from 'vue';
 // ルーティングの定義をインポート
-import router from './router'
+import router from './router';
 // ストアの定義をインポート
-import store from './store'
+import store from './store';
 // ルートコンポーネントをインポート
-import App from './App.vue'
+import App from './App.vue';
 
 const createApp = async () => {
     // ログインチェック

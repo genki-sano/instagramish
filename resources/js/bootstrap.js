@@ -1,4 +1,4 @@
-import { getCookieValue } from './util'
+import { getCookieValue } from './util';
 
 window.axios = require('axios');
 

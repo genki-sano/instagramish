@@ -22671,7 +22671,7 @@ var routes = [{
   props: function props(route) {
     var page = route.query.page;
     return {
-      page: /^[1-9][0-9]*$/.test(page) ? page * 1 : 1
+      page: /^[1-9][0-9]*$/.test(page) ? page : 1
     };
   }
 }, {

@@ -22,9 +22,8 @@
 </template>
 
 <script>
-    import { CREATED, UNPROCESSABLE_ENTITY } from '../util'
-
-    import Loader from './Loader.vue'
+    import { CREATED, UNPROCESSABLE_ENTITY } from '../util';
+    import Loader from './Loader.vue';
 
     export default {
         components: {

@@ -27,10 +27,10 @@
         },
         computed: {
             isFirstPage() {
-                return this.currentPage === 1
+                return this.currentPage === 1;
             },
             isLastPage() {
-                return this.currentPage === this.lastPage
+                return this.currentPage === this.lastPage;
             }
         }
     }

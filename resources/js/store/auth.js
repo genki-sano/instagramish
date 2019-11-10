@@ -1,4 +1,4 @@
-import { OK, CREATED, UNPROCESSABLE_ENTITY } from '../util'
+import { OK, CREATED, UNPROCESSABLE_ENTITY } from '../util';
 
 const state = {
     user: null,
@@ -35,7 +35,7 @@ const actions = {
         if (response.status === CREATED) {
             context.commit('setApiStatus', true);
             context.commit('setUser', response.data);
-            return false
+            return false;
         }
 
         context.commit('setApiStatus', false);
@@ -69,7 +69,7 @@ const actions = {
         if (response.status === OK) {
             context.commit('setApiStatus', true);
             context.commit('setUser', null);
-            return false
+            return false;
         }
 
         context.commit('setApiStatus', false);
@@ -84,7 +84,7 @@ const actions = {
         if (response.status === OK) {
             context.commit('setApiStatus', true);
             context.commit('setUser', user);
-            return false
+            return false;
         }
 
         context.commit('setApiStatus', false);

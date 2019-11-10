@@ -69,7 +69,7 @@
 </template>
 
 <script>
-    import { OK, CREATED, UNPROCESSABLE_ENTITY } from '../util'
+    import { OK, CREATED, UNPROCESSABLE_ENTITY } from '../util';
 
     export default {
         computed: {
