@@ -26,7 +26,7 @@
         },
         computed: {
             errorCode() {
-                return this.$store.store.error.code;
+                return this.$store.state.error.code;
             }
         },
         watch: {
