@@ -33,7 +33,7 @@
             errorCode: {
                 async handler(val) {
                     if (val === INTERNAL_SERVER_ERROR) {
-                        this.$router.path('/500');
+                        this.$router.push('/500');
                     } else if (val === UNAUTHORIZED) {
                         // トークンをリフレッシュ
                         await axios.get('/api/refresh-token');

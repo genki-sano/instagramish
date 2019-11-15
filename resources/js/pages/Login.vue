@@ -10,7 +10,7 @@
                 class="tab__item"
                 :class="{'tab__item--active': tab === 2}"
                 @click="tab = 2"
-            >Register</li>
+            >Sign up</li>
         </ul>
         <div class="panel" v-show="tab === 1">
             <form class="form" @submit.prevent="login">
@@ -53,7 +53,7 @@
                 <label for="password-confirmation">Password (confirm)</label>
                 <input type="password" class="form__item" id="password-confirmation" v-model="registerForm.password_confirmation">
                 <div class="form__button">
-                    <button type="submit" class="button button--inverse">register</button>
+                    <button type="submit" class="button button--inverse">Sign up</button>
                 </div>
             </form>
         </div>

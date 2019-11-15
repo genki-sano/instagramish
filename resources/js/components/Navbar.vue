@@ -14,7 +14,7 @@
             </span>
             <div v-else class="navbar__item">
                 <RouterLink class="button button--link" to="/login">
-                    Login / Register
+                    Login / Sign up
                 </RouterLink>
             </div>
         </div>
