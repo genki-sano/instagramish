@@ -44,11 +44,11 @@
                     :key="comment.content"
                     class="photo-detail__commentItem"
                 >
-                    <p class="photo-detail__commentBody">
-                        {{ comment.content }}
-                    </p>
                     <p class="photo-detail__commentInfo">
                         {{ comment.author.name }}
+                    </p>
+                    <p class="photo-detail__commentBody">
+                        {{ comment.content }}
                     </p>
                 </li>
             </ul>
