@@ -31,18 +31,17 @@ Instagramish is a web application created by imitating Instagram. It consists of
 #### Development
 
 ```bash
+# build
 npm run dev
-```
 
-You can access your application at http://localhost:3000.
-
-```bash
 # build and watch
 npm run watch
 
 # serve with hot reloading
 npm run hot
 ```
+
+You can access your application at http://localhost:3000.
 
 #### Production
 
