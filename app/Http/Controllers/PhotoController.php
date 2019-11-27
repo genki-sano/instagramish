@@ -88,7 +88,7 @@ class PhotoController extends Controller
      */
     public function delete(string $id)
     {
-        $photo = Photo::where('id', $id)->first();
+        $photo = Photo::find($id);
 
         if (! $photo) {
             abort(404);
