@@ -14,12 +14,18 @@ class CreatePhotosTable extends Migration
     public function up()
     {
         Schema::create('photos', function (Blueprint $table) {
+            $table->charset = 'utf8mn4';
+            $table->collation = 'utf8mn4_unicode_ci';
+
             $table->string('id')->primary();
             $table->unsignedInteger('user_id');
             $table->string('filename');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

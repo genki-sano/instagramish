@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -10,27 +11,33 @@ use Illuminate\Support\Facades\Storage;
 class Photo extends Model
 {
     /** @var int IDの桁数 */
-    const ID_LENGTH = 12;
-
-    /** @var int 1ページあたりの項目数 */
-    protected $perPage = 15;
+    private const ID_LENGTH = 12;
 
     /** @var string プライマリキーの型 */
     protected $keyType = 'string';
 
     /** @var array JSONに含めるアクセサ */
     protected $appends = [
-        'url', 'likes_count', 'liked_by_user',
+        'url',
+        'likes_count',
+        'liked_by_user',
     ];
 
     /** @var array JSONに含める属性 */
     protected $visible = [
-        'id', 'owner', 'url', 'comments', 'likes_count', 'liked_by_user',
+        'id',
+        'owner',
+        'url',
+        'comments',
+        'likes_count',
+        'liked_by_user',
     ];
 
     /**
      * Photo constructor.
+     *
      * @param array $attributes
+     *
      * @throws \Exception
      */
     public function __construct(array $attributes = [])
@@ -44,6 +51,7 @@ class Photo extends Model
 
     /**
      * ランダムなID値をid属性に代入.
+     *
      * @throws \Exception
      */
     private function setId()
@@ -53,6 +61,7 @@ class Photo extends Model
 
     /**
      * ランダムなID値を生成.
+     *
      * @return string
      * @throws \Exception
      */
@@ -76,6 +85,7 @@ class Photo extends Model
 
     /**
      * アクセサ - url.
+     *
      * @return string
      */
     public function getUrlAttribute()
@@ -85,6 +95,7 @@ class Photo extends Model
 
     /**
      * アクセサ - likes_count.
+     *
      * @return int
      */
     public function getLikesCountAttribute()
@@ -94,6 +105,7 @@ class Photo extends Model
 
     /**
      * アクセサ - liked_by_user.
+     *
      * @return bool
      */
     public function getLikedByUserAttribute()
@@ -109,28 +121,11 @@ class Photo extends Model
 
     /**
      * リレーションシップ - usersテーブル.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     *
+     * @return BelongsTo
      */
     public function owner()
     {
-        return $this->belongsTo('App\User', 'user_id', 'id', 'users');
-    }
-
-    /**
-     * リレーションシップ - commentsテーブル.
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function comments()
-    {
-        return $this->hasMany('App\Comment')->orderBy('id', 'desc');
-    }
-
-    /**
-     * リレーションシップ - usersテーブル.
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function likes()
-    {
-        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -5,17 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Comment extends Model
+class Like extends Model
 {
-    /** @var array JSONに含める属性 */
-    protected $visible = [
-        'author',
-        'content',
-    ];
-
     /**
-     * リレーションシップ - photosテーブル
-     *
+     * リレーションシップ - photoテーブル.
      * @return BelongsTo
      */
     public function photo()
