@@ -1,10 +1,9 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
-$factory->define(App\Photo::class, function (Faker $faker) {
+/** @var Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Photo::class, function (\Faker\Generator $faker) {
     return [
         'id' => Str::random(12),
         'user_id' => function () {
