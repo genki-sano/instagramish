@@ -14,7 +14,7 @@ class Comment extends Model
     ];
 
     /**
-     * リレーションシップ - photosテーブル
+     * リレーションシップ - photosテーブル.
      *
      * @return BelongsTo
      */
