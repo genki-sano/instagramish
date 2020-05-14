@@ -1,7 +1,7 @@
 <?php
 
-use App\Photo;
-use App\User;
+use App\Entities\Photo;
+use App\Entities\User;
 use Illuminate\Support\Str;
 
 /**

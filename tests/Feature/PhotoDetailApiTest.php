@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Comment;
-use App\Photo;
+use App\Entities\Comment;
+use App\Entities\Photo;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Storage;

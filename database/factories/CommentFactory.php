@@ -1,7 +1,7 @@
 <?php
 
-use App\Comment;
-use App\Photo;
+use App\Entities\Comment;
+use App\Entities\Photo;
 
 /**
  * @var Illuminate\Database\Eloquent\Factory $factory

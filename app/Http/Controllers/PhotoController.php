@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
+use App\Entities\Comment;
 use App\Http\Requests\StoreComment;
 use App\Http\Requests\StorePhoto;
-use App\Photo;
+use App\Entities\Photo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;

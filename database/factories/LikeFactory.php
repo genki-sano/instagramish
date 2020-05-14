@@ -1,7 +1,7 @@
 <?php
 
-use App\Like;
-use App\Photo;
+use App\Entities\Like;
+use App\Entities\Photo;
 
 /**
  * @var Illuminate\Database\Eloquent\Factory $factory
