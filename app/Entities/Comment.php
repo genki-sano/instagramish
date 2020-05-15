@@ -22,4 +22,13 @@ class Comment extends Model
     {
         return $this->belongsTo(Photo::class, 'photo_id');
     }
+
+    /**
+     * リレーションシップ - userテーブル.
+     * @return BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

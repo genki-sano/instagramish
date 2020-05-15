@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 /**
  * @var Illuminate\Database\Eloquent\Factory $factory
  */
-$factory->define(Photo::class, function (\Faker\Generator $faker) {
+$factory->define(Photo::class, function (Faker\Generator $faker) {
     return [
         'id' => Str::random(12),
         'user_id' => function () {
