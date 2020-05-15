@@ -168,6 +168,7 @@ class PhotoController extends Controller
             abort(404);
         }
 
+        // 何回実行しても1個しかいいねが付かないようにする
         $photo->likes()->detach(Auth::user()->id);
         $photo->likes()->attach(Auth::user()->id);
 

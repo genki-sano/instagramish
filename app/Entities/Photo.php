@@ -4,6 +4,7 @@ namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -138,5 +139,15 @@ class Photo extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class)->orderBy('id', 'desc');
+    }
+
+    /**
+     * リレーションシップ - usersテーブル.
+     *
+     * @return BelongsToMany
+     */
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
     }
 }
