@@ -5,14 +5,15 @@ namespace Tests\Feature;
 use App\Entities\Photo;
 use App\Entities\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CommentApiTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @var mixed */
+    /**
+     * @var User
+     */
     private $user;
 
     /**
@@ -22,7 +23,6 @@ class CommentApiTest extends TestCase
     {
         parent::setUp();
 
-        // テストユーザー作成
         $this->user = factory(User::class)->create();
     }
 
@@ -42,8 +42,6 @@ class CommentApiTest extends TestCase
                 'photo' => $photo->id,
             ]), compact('content'));
 
-        $comments = $photo->comments()->get();
-
         $response->assertStatus(201)
             // JSONフォーマットが期待通りであること
             ->assertJsonFragment([
@@ -52,6 +50,8 @@ class CommentApiTest extends TestCase
                 ],
                 'content' => $content,
             ]);
+
+        $comments = $photo->comments()->get();
 
         // DBにコメントが1件登録されていること
         $this->assertEquals(1, $comments->count());

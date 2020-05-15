@@ -139,11 +139,11 @@ class PhotoController extends Controller
      */
     public function addComment(Photo $photo, StoreComment $request)
     {
-        $comment = new Comment([
-            'content' => $request->get('content'),
-            'user_id' => Auth::user()->id,
-        ]);
-        $photo->comments()->save($comment);
+        $comment = new Comment();
+        $comment->photo_id = $photo->id;
+        $comment->user_id = Auth::user()->id;
+        $comment->content = $request->get('content');
+        $comment->save();
 
         // authorリレーションをロードするためにコメントを取得しなおす
         $new_comment = Comment::where('id', $comment->id)
