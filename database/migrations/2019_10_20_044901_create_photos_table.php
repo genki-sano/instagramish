@@ -14,11 +14,8 @@ class CreatePhotosTable extends Migration
     public function up()
     {
         Schema::create('photos', function (Blueprint $table) {
-            $table->charset = 'utf8mn4';
-            $table->collation = 'utf8mn4_unicode_ci';
-
             $table->string('id')->primary();
-            $table->unsignedInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('filename');
             $table->timestamps();
 
